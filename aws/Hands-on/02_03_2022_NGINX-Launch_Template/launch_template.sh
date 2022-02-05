@@ -100,7 +100,7 @@ we keep it as is  (Volume 1 (AMI Root) (8 GiB, EBS, General purpose SSD (gp2)))
 
 
 Key             : Name
-Value           : Webserver-Origin
+Webserver-OriginValue           : Webserver-Origin
 Resource type   : Instance
 
 
