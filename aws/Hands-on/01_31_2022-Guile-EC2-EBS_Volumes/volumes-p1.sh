@@ -10,15 +10,15 @@ df -h
 lsblk
 df -h
 # check if the attached volume is already formatted or not and has data on it.
-sudo file -s /dev/xvdf
+sudo file -s /dev/xvdb
 # if not formatted, format the new volume
-sudo mkfs -t ext4 /dev/xvdf
+sudo mkfs -t ext4 /dev/xvdb
 # check the format of the volume again after formatting
-sudo file -s /dev/xvdf
+sudo file -s /dev/xvdb
 # create a mounting point path for new volume
 sudo mkdir /mnt/2nd-vol
 # mount the new volume to the mounting point path
-sudo mount /dev/xvdf /mnt/2nd-vol/
+sudo mount /dev/xvdb /mnt/2nd-vol/
 # check if the attached volume is mounted to the mounting point path
 lsblk
 # show the available space, on the mounting point path
@@ -45,7 +45,7 @@ sudo reboot now
 # show the new volume is still attached, but not mounted
 lsblk
 # check if the attached volume is already formatted or not and has data on it.
-sudo file -s /dev/xvdf
+sudo file -s /dev/xvdb
 # mount the new volume to the mounting point path
 sudo mount /dev/xvdf /mnt/2nd-vol/
 # show the used and available capacity is same as the disk size.
