@@ -8,6 +8,7 @@
 
 
 # Get the username (login).
+read -p "Enter Your User Name: " username
 
 # Get the real name (contents for the description field).
 
