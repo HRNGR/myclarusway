@@ -9,7 +9,7 @@ AWS Workshop contains hands-on trainings and projects.
 - [AWS Session Class-notes](./class-notes/README.md)
 
 
-## Naming Convention for Folder
+## Naming Convention for Folders 
 
 - Use lower case letters to name the folders.
 

@@ -12,11 +12,7 @@ then
 fi
 
 # Get the username (login).
-<<<<<<< HEAD
-read -p "Enter Your User Name: " username
-=======
 read -p 'Enter the username to create: ' USER_NAME
->>>>>>> e533517835d6cfbbf9e23eb78e0ff7472f1c25ef
 
 # Get the real name (contents for the description field).
 read -p 'Enter the name of the person or application that will be using this account: ' COMMENT
