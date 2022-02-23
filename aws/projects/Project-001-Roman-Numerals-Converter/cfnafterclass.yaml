@@ -1,0 +1,26 @@
+AWSTemplateFormatVersion: 2010-09-09
+Description: |
+  The Roman Numerals Converter Application aims to convert the given number to the Roman numerals. The application is to be coded in Python and deployed as a web application with Flask on AWS Elastic Compute Cloud (EC2) Instance using AWS Cloudformation and CLI Services.
+Parameters:
+  ParameterName:
+    Description: 
+    Type: AWS::EC2::KeyPair::KeyName
+
+Resources:
+  myEC2Instance:
+    Type: AWS::EC2::Instance
+    Properties:
+      KeyName: 
+      DisableApiTermination: 
+      ImageId: 
+      InstanceType: 
+      Monitoring: true|false
+      SecurityGroupIds:
+        - sg-id
+      UserData: !Base64 |
+        #!/bin/bash -ex
+        # put your script here
+      Tags:
+        - Key: key
+          Value: value
+Outputs:
