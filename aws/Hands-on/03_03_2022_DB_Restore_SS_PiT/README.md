@@ -166,8 +166,6 @@ sudo apt-get install mariadb-client -y
 
 ```bash
 mysql -h Your RDS Endpoint -u admin -p
-
-mysql -h rds-mysql.chzbvsbsj0l3.us-east-1.rds.amazonaws.com -u admin -p
 ```
 
 - Show default databases in the MySQL server.
@@ -175,10 +173,6 @@ mysql -h rds-mysql.chzbvsbsj0l3.us-east-1.rds.amazonaws.com -u admin -p
 ```sql
 SHOW DATABASES;
 ```
-
-eğer oluşturmadıysak aşağıdaki komutla da oluşturabiliriz
-
-CREATE DATABASE clarusway;
 
 - Choose a database 
 
@@ -400,12 +394,6 @@ USE clarusway;
 
 ```bash
 mysql -h [***restored-from-man-snapshot RDS endpoint] -u admin -p
-
-Yeni restorenin END point i
-
-mysql -h restored-from-man-snapshot.chzbvsbsj0l3.us-east-1.rds.amazonaws.com -u admin -p
-
-
 ```
 
 - Choose a database (`clarusway` db) to work with.
@@ -502,11 +490,6 @@ there are only 4 records
 
 ```bash
 mysql -h [DNS Name of point in time recovery RDS Instance] -u admin -p clarusway
-
-
-mysql -h restored-from-point-in-time-rds.chzbvsbsj0l3.us-east-1.rds.amazonaws.com -u admin -p clarusway
-
-
 ```
 
 - Show that deleted records of employees are back in `restored-from-point-in-time-RDS`.
@@ -525,8 +508,6 @@ SELECT * FROM employees ORDER BY salary ASC;
 
 ```bash
 mysqldump -h [restored-from-point-in-time-RDS endpoint] -u admin -p clarusway > backup.sql
-
-mysqldump -h restored-from-point-in-time-rds.chzbvsbsj0l3.us-east-1.rds.amazonaws.com -u admin -p clarusway > backup.sql
 ```
 
 - Show `backup.sql` file with `ls` command.

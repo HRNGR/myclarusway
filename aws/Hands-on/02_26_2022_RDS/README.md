@@ -193,7 +193,7 @@ CREATE TABLE `clarusway`.`Personal_Info_2` (
 - Add data to the "Personal_Info" table as shown below:
 
 ```sql
-INSERT INTO Clarusway.new_table
+INSERT INTO clarusway.Personal_Info_1
 (ID_number, Name, Surname, Gender, Salary)
 VALUES
 ('1234','Osvaldo','Clarusway','Male','40000'), 
