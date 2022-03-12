@@ -1,0 +1,28 @@
+AWSTemplateFormatVersion: 2010-09-09
+Description: |
+  
+Parameters:
+  ParamBucketName:
+    Description: Enter Bucket Name (Full DomainName and Sub DomainName Example; www.example.com)
+    Type: String
+    Default: 
+  
+Resources:
+  MyS3Bucket:
+    Type: AWS::S3::Bucket
+    Properties:
+      BucketName: !Ref ParamBucketName
+      OwnershipControls:
+        Rules:
+          -ObjectOwnership: BucketOwnerEnforced
+      PublicAccessBlockConfiguration:
+        BlockPublicAcls: false
+        BlockPublicPolicy: false
+        IgnorePublicAcls: false
+        RestrictPublicBuckets: false
+      WebsiteConfiguration:
+        ErrorDocument: "String"
+        IndexDocument: "String"
+        RoutingRules:
+          -
+Outputs:
