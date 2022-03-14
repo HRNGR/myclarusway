@@ -8,8 +8,8 @@
 
 # 2.Create EC2 that is installed LAMP with user data seen below for "Wordpress app in Public Subnet 1b"
 
-   VPC: "hrn-vpc-a"
-   Subnet: "hrn-az1b-public-subnet"
+   VPC: "clarus-vpc-a"
+   Subnet: "clarus-az1b-public-subnet"
    Sec Group: "Wordpress-BastionHost-SG"
    User Data:
    
@@ -34,8 +34,8 @@ systemctl restart httpd
 
 # 3.Create MariaDB ec2 instance in Private Subnet 1b
 
-   VPC: "hrn-vpc-a"
-   Subnet: "hrn-az1b-private-subnet"
+   VPC: "clarus-vpc-a"
+   Subnet: "clarus-az1b-private-subnet"
    Sec Group: "MariaDB-SG"
    User Data:
 
@@ -83,19 +83,13 @@ You can use "scp" to transfer your .pem key.
 eval "$(ssh-agent)"
 
 # 8. Add your private key to the ssh agent.
-cd Downloads
-ssh-add FirstKey.pem # Be careful about the path of your key, use relative or absolute path.
+ssh-add KEY_NAME_HERE.pem # Be careful about the path of your key, use relative or absolute path.
 
 # 9. Connect to the "Wordpress-Bastion Host" instance in "public-1b" subnet.
-ssh -A ec2-user@54.175.141.139 (Public IP of Wordpress-Bastion Host) # Don't forget to change the IP with your instance IP.
+ssh -A ec2-user@3.88.199.43 (Public IP of Wordpress-Bastion Host) # Don't forget to change the IP with your instance IP.
 
 # 10. connect to the Database instance in the "private-1b" subnet.
-ssh ec2-user@10.7.5.74 (Private IP of Database Instance)
-
-
-ssh -i "FirstKey.pem" ec2-user@10.7.5.74
-
-# Don't forget to change the IP with your instance IP.
+ssh ec2-user@10.7.2.20 (Private IP of Database Instance) # Don't forget to change the IP with your instance IP.
 
 # 11. Check if the yum update and mariadb installation were done with userdata.
 sudo systemctl status mariadb
@@ -109,11 +103,11 @@ sudo yum install -y mariadb-server
 # (You can also create a NAT Gateway for outbound connectivity)
 
     AMI: "NAT"
-    VPC: "hrn-vpc-a"
-    Subnet: "hrn-az1a-public-subnet"
+    VPC: "clarus-vpc-a"
+    Subnet: "clarus-az1a-public-subnet"
     Sec Group: "NAT-SG"
 
-# 13. Edit "hrn-private-rt" route table:
+# 13. Edit "clarus-private-rt" route table:
 
 Destination                 Target
 10.7.0.0/16    >>>>>>       local
@@ -141,14 +135,14 @@ mysql -u root -p
 # 18. Show databases.
 SHOW DATABASES;
 
-# 19. Create new database named "hrndb".
-CREATE DATABASE hrndb;
+# 19. Create new database named "clarusdb".
+CREATE DATABASE clarusdb;
 
 # 20. Create a user named "admin".
 CREATE USER admin IDENTIFIED BY '123456789';
 
-# 21. Grant permissions to the user "admin" for database "hrndb".
-GRANT ALL ON hrndb.* TO admin IDENTIFIED BY '123456789' WITH GRANT OPTION;  
+# 21. Grant permissions to the user "admin" for database "clarusdb".
+GRANT ALL ON clarusdb.* TO admin IDENTIFIED BY '123456789' WITH GRANT OPTION;  
 
 # 22. Update privileges.
 FLUSH PRIVILEGES;
@@ -168,13 +162,13 @@ cd /var/www/html/
 # 27. Change the config file for database association and restart httpd (You can use your favorite editor).
 sudo vi wp-config.php
 
-     define( 'DB_NAME', 'hrndb' );
+     define( 'DB_NAME', 'clarusdb' );
 
      define( 'DB_USER', 'admin' );
 
      define( 'DB_PASSWORD', '123456789' );
 
-     define( 'DB_HOST', '10.7.5.158B' );
+     define( 'DB_HOST', 'PRIVATE_IP_OF_MARIADB' );
 
 Esc :wq ---> Enter
 
@@ -189,16 +183,16 @@ sudo systemctl restart httpd
 
 # 1. Create a private ec2 instance in Private Subnet 1a
 
-    VPC: "hrn-vpc-a"
-    Subnet: "hrn-az1a-private-subnet"
+    VPC: "clarus-vpc-a"
+    Subnet: "clarus-az1a-private-subnet"
     Sec Group: Allow >>> "SSH and All ICMP-IPv4"
 
 # 2. Go to the 'Network ACLs' menu from left hand pane on VPC
 
 # 3. Click 'Create network ACL' button
 
-    Name: "hrn-private1a-nacl"
-    VPC: "hrn-vpc-a"
+    Name: "clarus-private1a-nacl"
+    VPC: "clarus-vpc-a"
 
 - Select Inbound Rules ---> Edit Inbound rules ---> Add Rule
   Rule        Type              Protocol      Port Range        Source      Allow/Deny
@@ -211,14 +205,14 @@ sudo systemctl restart httpd
   100         ssh(22)           TCP(6)        22                0.0.0.0/0         Allow
   200         All ICMP - IPv4   ICMP(1)       ALL               0.0.0.0/0         Deny
 
-# 4. Select Subnet associations sub-menu ---> Edit subnet association ---> select "hrn-az1a-private-subnet" ---> edit
+# 4. Select Subnet associations sub-menu ---> Edit subnet association ---> select "clarus-az1a-private-subnet" ---> edit
 
 # 5. Go to terminal, ssh to the WordPress/BastionHost instance and try to ping private instance.
 ping 10.7.2.20 (Private IP of Private Instance) # Don't forget to change the IP with your instance IP. 
 
 # It will not work because of the NACLs outbound rule DENY.
 
-# 6. Go to the NACL named "hrn-private1a-nacl"
+# 6. Go to the NACL named "clarus-private1a-nacl"
 
 # 7. Select Outbound Rules ---> Edit Outbound rules
 
@@ -237,7 +231,7 @@ ping 10.7.2.20 (Private IP of Private Instance) # Don't forget to change the IP 
 # 9. Try to ssh to private instance over the WordPress/BastionHost instance.
 # It will not work because of the ephemeral ports. Explain ephemeral ports.
 
-# 10. Go to the NACL named "hrn-private1a-nacl"
+# 10. Go to the NACL named "clarus-private1a-nacl"
 
 # 11. Select Outbound Rules ---> Edit Outbound rules
 
