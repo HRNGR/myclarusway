@@ -34,12 +34,12 @@ Resources:
     Type: "AWS::CertificateManager::Certificate"
     Properties:
       CertificateTransparencyLoggingPreference: ENABLED 
+
       DomainName: !Ref KittensDomainName 
       DomainValidationOptions:
         - DomainName: !Ref KittensDomainName
           HostedZoneId: !Ref DomainName
       ValidationMethod: DNS
-
   KittensCloudfront:
     Type: "AWS::CloudFront::Distribution" 
     Properties:
