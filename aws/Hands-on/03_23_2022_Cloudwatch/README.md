@@ -538,7 +538,3 @@ sudo systemctl start awslogsd
 - click the created log group named "AccessLog" and "ErrorLog" ---> show the newly created "log streams"
 
 - ıf you get any problem try to restart instance .
-
-
-
-
