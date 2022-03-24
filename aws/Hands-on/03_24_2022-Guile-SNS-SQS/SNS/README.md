@@ -4,7 +4,7 @@
 
 ### Step 1 : Create Topic
 
-- Go to `SNS` service on AWS console.
+- Go to `SNS` service on AWS console. Simple Notice Serves
 
 - Click `Topics` >> `Create topic`.
 
