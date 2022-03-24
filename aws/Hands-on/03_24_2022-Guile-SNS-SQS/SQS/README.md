@@ -42,7 +42,7 @@
 - Click `Done`.
 
 - Select the polled message and click `Delete` and delete the message.
-
+ok
 
 ### Step 4 : Populate Queue
 
