@@ -77,7 +77,7 @@
 - Click `Rules` >> `Create Rule` from the left-hand menu.
 
 - `Define rule detail`
-    - Name : EC2StateChange
+    - Name : EC2StateChange 
     - Description : -
     - Event bus : default
     - Rule type : Rule with an event pattern
