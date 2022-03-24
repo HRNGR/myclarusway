@@ -233,7 +233,7 @@ stress --cpu 80 --timeout 20000
 ```python
 import boto3
 region = 'us-east-1'
-instances = ['i-05e64c9bb2f37d19e']#DON'T FORGET TO CHANGE ME
+instances = ['i-02c107da60f5dad15']#DON'T FORGET TO CHANGE ME
 ec2 = boto3.client('ec2', region_name=region)
 
 def lambda_handler(event, context):
@@ -538,3 +538,7 @@ sudo systemctl start awslogsd
 - click the created log group named "AccessLog" and "ErrorLog" ---> show the newly created "log streams"
 
 - ıf you get any problem try to restart instance .
+
+
+
+
