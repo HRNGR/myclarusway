@@ -4,7 +4,7 @@
 
 ### Step 1 : Create Queue
 
-- Go to `SQS` service on AWS console. Simple Queuing Server
+- Go to `SQS` service on AWS console. Simple Queuing Server. 
 
 - Click `Create queue`.
 
