@@ -114,7 +114,7 @@ s3_client = boto3.client("s3")
 
 
 def lambda_handler(event, context):
-   destination_bucket_name = 'hrn.destination.lambda'
+   destination_bucket_name = 'clarusway.destination.lambda'
 
    # event contains all information about uploaded object
    print("Event :", event)

@@ -4,7 +4,7 @@
 
 ### Step 1 : Create Queue
 
-- Go to `SQS` service on AWS console. Simple Queuing Server. 
+- Go to `SQS` service on AWS console.
 
 - Click `Create queue`.
 
@@ -42,7 +42,7 @@
 - Click `Done`.
 
 - Select the polled message and click `Delete` and delete the message.
-ok
+
 
 ### Step 4 : Populate Queue
 
