@@ -21,7 +21,7 @@ At the end of the this hands-on training, students will be able to;
 -  Create a directory ("terraform-aws") for the new configuration and change into the directory.
 
 ```bash
-$ mkdir terraform-aws && cd terraform-aws && touch main.tf
+$ mkdir terraform-preclass && cd terraform-preclass && touch main.tf
 ```
 
 - Create a file named `main.tf` for the configuration code and copy and paste the following content. 
@@ -43,25 +43,25 @@ terraform {
 resource "aws_instance" "tf-ec2" {
   ami           = "ami-0ed9277fb7eb570c9"
   instance_type = "t2.micro"
-  key_name      = "oliver"    # write your pem file without .pem extension>
+  key_name      = "FirstKey"    # write your pem file without .pem extension>
   tags = {
     "Name" = "tf-ec2"
   }
 }
 
 resource "aws_s3_bucket" "tf-s3" {
-  bucket = "oliver-tf-test-bucket-addwhateveryouwant"
+  bucket = "hrn-tf-test-bucket-addwhateveryouwant"
 }
 ```
 
-- Run the command `terraform plan` and `terraform apply`.
+- Run the command `terraform init` and `terraform plan` terraform apply
 
 ```bash
 terraform plan
 
 terraform apply
 ```
-
+(one ec2 is running)
 ### Validate command.
 
 - Go to the terminal and run `terraform validate`. It validates the Terraform files syntactically correct and internally consistent.  
