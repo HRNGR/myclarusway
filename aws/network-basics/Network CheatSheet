@@ -1,6 +1,17 @@
 traceroute
-ping Utility
+tracert [DNS name] or [IP Address]
+
+ping
+ping Utility ping hostname or IP address
+
+mtr (pathping)
+pathping [DNS name] or [IP Address]
+
+
 the Address Resolution Protocol
+ipconfig
+
+
 nslookup Utility
 mtr Command (pathping)
 nmap
@@ -8,6 +19,9 @@ route Command
 Table of Contents
 netstat Utility
 tcpdump
+
+
+
 
 
 The File Transfer Protocol
