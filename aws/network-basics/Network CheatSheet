@@ -1,16 +1,17 @@
-▶ Using traceroute
-▶ Using ping Utility
-▶ Using the Address Resolution Protocol
-▶ Using nslookup Utility
-▶ Using mtr Command (pathping)
-▶ Using nmap
-▶ Using route Command
-©
-4
+traceroute
+ping Utility
+the Address Resolution Protocol
+nslookup Utility
+mtr Command (pathping)
+nmap
+route Command
 Table of Contents
-▶ Using netstat Utility
-▶ Using tcpdump
-▶ Using the File Transfer Protocol
-▶ Using telnet and ssh Utility
-▶ Using scp and curl Commands
-▶ Network Configuration Files
+netstat Utility
+tcpdump
+
+
+The File Transfer Protocol
+telnet and ssh Utility
+scp and curl Commands
+
+Network Configuration Files
