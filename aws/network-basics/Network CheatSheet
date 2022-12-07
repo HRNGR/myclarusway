@@ -16,8 +16,6 @@ arp -a
 
 nslookup Utility
 
-
-
 Mevcut ip mi öğrenmek için bu site kullanılabilir
 curl icanhazip.com
 
