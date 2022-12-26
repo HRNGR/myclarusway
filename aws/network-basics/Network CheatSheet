@@ -1,5 +1,5 @@
 traceroute
-tracert [DNS name] or [IP Address]
+tracert [DNS name] or [IP Address]       www.example.com
 
 ping
 ping Utility ping hostname or IP address
