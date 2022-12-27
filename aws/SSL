@@ -1,1 +1,4 @@
 /etc/ssl/certs/ca-certificates.crt
+
+Jiranın ssl kaynaklı erişim hatası olduğundan yukarıdaki dosyaya 
+jiranın pem bilgisi ekleniyor
