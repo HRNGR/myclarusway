@@ -19,6 +19,9 @@ nslookup Utility
 Mevcut ip mi öğrenmek için bu site kullanılabilir
 curl icanhazip.com
 
+tcpdump 
+
+
 nmap
 route Command
 Table of Contents
