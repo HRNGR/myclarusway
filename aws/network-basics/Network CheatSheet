@@ -37,3 +37,10 @@ telnet and ssh Utility
 scp and curl Commands
 
 Network Configuration Files
+
+--------------------
+Checking open ports
+netstat -ano (list all listen and send ports)
+netstat -tpln (list all listen)
+sudo lsof -i -P -n | grep LISTEN
+-----------------------------
